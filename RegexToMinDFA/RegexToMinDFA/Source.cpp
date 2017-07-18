@@ -38,7 +38,7 @@ void epsilonClosure(int state, set<int> &Eq, vector<NFAState> NFA)
 {
 	for (unsigned int i = 0; i < NFA[state].statesWithEpsilon.size(); ++i)
 	{
-		if (Eq.count(NFA[state].statesWithEpsilon[i]) == 0)
+		if (Eq.count(NFA[state].statesWithEpsilon[i]) == 0) //O(logn) TODO
 		{
 			Eq.insert(NFA[state].statesWithEpsilon[i]);
 			epsilonClosure(NFA[state].statesWithEpsilon[i], Eq, NFA);
@@ -101,7 +101,7 @@ vector<DFAState> determinize(vector<NFAState> NFA, int q0)
 				epsilonClosure(*it, Eq, NFA);
 			}
 
-			if (mapDFA.count(Eq) == 0)
+			if (mapDFA.count(Eq) == 0) //O(logn) TODO
 			{
 				DFA[DFASize].stateWithLetter[i] = r;
 				mapDFA[Eq] = r++;
@@ -109,10 +109,10 @@ vector<DFAState> determinize(vector<NFAState> NFA, int q0)
 			}
 			else
 			{
-				DFA[DFASize].stateWithLetter[i] = mapDFA.find(Eq)->second;
+				DFA[DFASize].stateWithLetter[i] = mapDFA.find(Eq)->second; //O(logn) TODO
 			}
 
-			next.clear();
+			next.clear(); //O(n) TODO
 		}
 
 		queueDFA.pop();
@@ -655,11 +655,11 @@ int main()
 	string leapYear = div4 + N + N + "*." + div4 + "-" + "00..-";
 	string leapDates = sigma + "*" + month29 + " 29, ......" + leapYear + "$" + sigma + "*..^.^";
 	string validDates = allDates + maxDays + leapDates + "&&";
-	cout << "Regular expression in reverse polish notation: ";
-	cin >> expression;
+	/*cout << "Regular expression in reverse polish notation: ";
+	cin >> expression;*/
 
 	high_resolution_clock::time_point t1 = high_resolution_clock::now();
-	pair<vector<NFAState>, int> NFAconstruction = constructNFA(expression);
+	pair<vector<NFAState>, int> NFAconstruction = constructNFA(month29);
 	high_resolution_clock::time_point t2 = high_resolution_clock::now();
 	
 	auto duration = duration_cast<microseconds>(t2 - t1).count();
@@ -698,7 +698,12 @@ int main()
 		int initialState = result.first;
 		cout << "Initial state: " << initialState << endl;
 
+		high_resolution_clock::time_point t7 = high_resolution_clock::now();
 		print(minDFA);
+		high_resolution_clock::time_point t8 = high_resolution_clock::now();
+
+		auto duration4 = duration_cast<microseconds>(t8 - t7).count();
+		cout << duration4 << endl;
 	}
 	else
 	{
