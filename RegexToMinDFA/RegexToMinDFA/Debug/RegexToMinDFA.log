@@ -1,0 +1,17 @@
+﻿  Source.cpp
+c:\users\krisi\documents\visual studio 2017\projects\regextomindfa\regextomindfa\source.cpp(270): warning C4018: '<': signed/unsigned mismatch
+c:\users\krisi\documents\visual studio 2017\projects\regextomindfa\regextomindfa\source.cpp(283): warning C4018: '<': signed/unsigned mismatch
+c:\users\krisi\documents\visual studio 2017\projects\regextomindfa\regextomindfa\source.cpp(299): warning C4018: '<': signed/unsigned mismatch
+c:\users\krisi\documents\visual studio 2017\projects\regextomindfa\regextomindfa\source.cpp(401): warning C4018: '<': signed/unsigned mismatch
+c:\users\krisi\documents\visual studio 2017\projects\regextomindfa\regextomindfa\source.cpp(411): warning C4018: '<': signed/unsigned mismatch
+c:\users\krisi\documents\visual studio 2017\projects\regextomindfa\regextomindfa\source.cpp(425): warning C4018: '<': signed/unsigned mismatch
+c:\users\krisi\documents\visual studio 2017\projects\regextomindfa\regextomindfa\source.cpp(435): warning C4018: '<': signed/unsigned mismatch
+c:\users\krisi\documents\visual studio 2017\projects\regextomindfa\regextomindfa\source.cpp(524): warning C4018: '<': signed/unsigned mismatch
+c:\users\krisi\documents\visual studio 2017\projects\regextomindfa\regextomindfa\source.cpp(529): warning C4018: '<': signed/unsigned mismatch
+c:\users\krisi\documents\visual studio 2017\projects\regextomindfa\regextomindfa\source.cpp(550): warning C4018: '<': signed/unsigned mismatch
+c:\users\krisi\documents\visual studio 2017\projects\regextomindfa\regextomindfa\source.cpp(555): warning C4018: '<': signed/unsigned mismatch
+c:\users\krisi\documents\visual studio 2017\projects\regextomindfa\regextomindfa\source.cpp(571): warning C4018: '<': signed/unsigned mismatch
+c:\users\krisi\documents\visual studio 2017\projects\regextomindfa\regextomindfa\source.cpp(573): warning C4018: '<': signed/unsigned mismatch
+c:\users\krisi\documents\visual studio 2017\projects\regextomindfa\regextomindfa\source.cpp(652): warning C4018: '<': signed/unsigned mismatch
+  RegexToMinDFA.vcxproj -> c:\users\krisi\documents\visual studio 2017\Projects\RegexToMinDFA\Debug\RegexToMinDFA.exe
+  RegexToMinDFA.vcxproj -> c:\users\krisi\documents\visual studio 2017\Projects\RegexToMinDFA\Debug\RegexToMinDFA.pdb (Partial PDB)
