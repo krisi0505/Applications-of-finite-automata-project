@@ -10,7 +10,7 @@
 using namespace std;
 using namespace std::chrono;
 
-const int alphabetSize = 59;
+const int alphabetSize = 39;
 
 struct NFAState
 {
@@ -160,14 +160,28 @@ void print(vector<DFAState> minDFA)
 {
 	cout << endl;
 	int br = 0;
+	int printedLetters = 0;
 	while (br < alphabetSize)
 	{
 		cout << "State\t|";
 		char c;
-		for (int i = br; i < br + 3 && i<alphabetSize; ++i)
+		printedLetters = 0;
+		for (int i = br; i < br + 3 && i < 26; ++i)
 		{
-			c = ' ' + i;
+			c = 'A' + i;
 			cout << "\t" << c << "\t|";
+			printedLetters++;
+		}
+		for (int i = br + printedLetters; i < br + 3 && i < 36; ++i)
+		{
+			cout << "\t" << i - 26 << "\t|";
+			printedLetters++;
+		}
+		if (br + printedLetters < br + 3 && br + printedLetters == 36)
+		{
+			cout << "\t \t|";
+			cout << "\t,\t|";
+			cout << "\t$\t|";
 		}
 		cout << "\tFinal\t|" << endl;
 
@@ -480,7 +494,20 @@ pair<vector<NFAState>, int> constructNFA(string expression)
 		case '&': intersect(NFA, NFASize, endpoints); break;
 		case '^': complement(NFA, endpoints, NFASize); break;
 		case '<': reverse(NFA, endpoints, NFASize); break;
-		default: letter(expression[i] - ' ', NFA, NFASize, endpoints);
+		case '0': letter(26, NFA, NFASize, endpoints);
+		case '1': letter(27, NFA, NFASize, endpoints);
+		case '2': letter(28, NFA, NFASize, endpoints);
+		case '3': letter(29, NFA, NFASize, endpoints);
+		case '4': letter(30, NFA, NFASize, endpoints);
+		case '5': letter(31, NFA, NFASize, endpoints);
+		case '6': letter(32, NFA, NFASize, endpoints);
+		case '7': letter(33, NFA, NFASize, endpoints);
+		case '8': letter(34, NFA, NFASize, endpoints);
+		case '9': letter(35, NFA, NFASize, endpoints);
+		case ' ': letter(36, NFA, NFASize, endpoints);
+		case ',': letter(37, NFA, NFASize, endpoints);
+		case '$': letter(38, NFA, NFASize, endpoints);
+		default: letter(expression[i] - 'A', NFA, NFASize, endpoints);
 		}
 	}
 	int f; //final state of NFA

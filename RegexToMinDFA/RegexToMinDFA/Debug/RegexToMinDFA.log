@@ -1,17 +1,17 @@
 ﻿  Source.cpp
-c:\users\krisi\documents\visual studio 2017\projects\regextomindfa\regextomindfa\source.cpp(270): warning C4018: '<': signed/unsigned mismatch
-c:\users\krisi\documents\visual studio 2017\projects\regextomindfa\regextomindfa\source.cpp(283): warning C4018: '<': signed/unsigned mismatch
-c:\users\krisi\documents\visual studio 2017\projects\regextomindfa\regextomindfa\source.cpp(299): warning C4018: '<': signed/unsigned mismatch
-c:\users\krisi\documents\visual studio 2017\projects\regextomindfa\regextomindfa\source.cpp(401): warning C4018: '<': signed/unsigned mismatch
-c:\users\krisi\documents\visual studio 2017\projects\regextomindfa\regextomindfa\source.cpp(411): warning C4018: '<': signed/unsigned mismatch
-c:\users\krisi\documents\visual studio 2017\projects\regextomindfa\regextomindfa\source.cpp(425): warning C4018: '<': signed/unsigned mismatch
-c:\users\krisi\documents\visual studio 2017\projects\regextomindfa\regextomindfa\source.cpp(435): warning C4018: '<': signed/unsigned mismatch
-c:\users\krisi\documents\visual studio 2017\projects\regextomindfa\regextomindfa\source.cpp(524): warning C4018: '<': signed/unsigned mismatch
-c:\users\krisi\documents\visual studio 2017\projects\regextomindfa\regextomindfa\source.cpp(529): warning C4018: '<': signed/unsigned mismatch
-c:\users\krisi\documents\visual studio 2017\projects\regextomindfa\regextomindfa\source.cpp(550): warning C4018: '<': signed/unsigned mismatch
-c:\users\krisi\documents\visual studio 2017\projects\regextomindfa\regextomindfa\source.cpp(555): warning C4018: '<': signed/unsigned mismatch
-c:\users\krisi\documents\visual studio 2017\projects\regextomindfa\regextomindfa\source.cpp(571): warning C4018: '<': signed/unsigned mismatch
-c:\users\krisi\documents\visual studio 2017\projects\regextomindfa\regextomindfa\source.cpp(573): warning C4018: '<': signed/unsigned mismatch
-c:\users\krisi\documents\visual studio 2017\projects\regextomindfa\regextomindfa\source.cpp(652): warning C4018: '<': signed/unsigned mismatch
-  RegexToMinDFA.vcxproj -> c:\users\krisi\documents\visual studio 2017\Projects\RegexToMinDFA\Debug\RegexToMinDFA.exe
-  RegexToMinDFA.vcxproj -> c:\users\krisi\documents\visual studio 2017\Projects\RegexToMinDFA\Debug\RegexToMinDFA.pdb (Partial PDB)
+c:\users\krisi\desktop\applications-of-finite-automata-project\regextomindfa\regextomindfa\source.cpp(284): warning C4018: '<': signed/unsigned mismatch
+c:\users\krisi\desktop\applications-of-finite-automata-project\regextomindfa\regextomindfa\source.cpp(297): warning C4018: '<': signed/unsigned mismatch
+c:\users\krisi\desktop\applications-of-finite-automata-project\regextomindfa\regextomindfa\source.cpp(313): warning C4018: '<': signed/unsigned mismatch
+c:\users\krisi\desktop\applications-of-finite-automata-project\regextomindfa\regextomindfa\source.cpp(415): warning C4018: '<': signed/unsigned mismatch
+c:\users\krisi\desktop\applications-of-finite-automata-project\regextomindfa\regextomindfa\source.cpp(425): warning C4018: '<': signed/unsigned mismatch
+c:\users\krisi\desktop\applications-of-finite-automata-project\regextomindfa\regextomindfa\source.cpp(439): warning C4018: '<': signed/unsigned mismatch
+c:\users\krisi\desktop\applications-of-finite-automata-project\regextomindfa\regextomindfa\source.cpp(449): warning C4018: '<': signed/unsigned mismatch
+c:\users\krisi\desktop\applications-of-finite-automata-project\regextomindfa\regextomindfa\source.cpp(551): warning C4018: '<': signed/unsigned mismatch
+c:\users\krisi\desktop\applications-of-finite-automata-project\regextomindfa\regextomindfa\source.cpp(556): warning C4018: '<': signed/unsigned mismatch
+c:\users\krisi\desktop\applications-of-finite-automata-project\regextomindfa\regextomindfa\source.cpp(577): warning C4018: '<': signed/unsigned mismatch
+c:\users\krisi\desktop\applications-of-finite-automata-project\regextomindfa\regextomindfa\source.cpp(582): warning C4018: '<': signed/unsigned mismatch
+c:\users\krisi\desktop\applications-of-finite-automata-project\regextomindfa\regextomindfa\source.cpp(598): warning C4018: '<': signed/unsigned mismatch
+c:\users\krisi\desktop\applications-of-finite-automata-project\regextomindfa\regextomindfa\source.cpp(600): warning C4018: '<': signed/unsigned mismatch
+c:\users\krisi\desktop\applications-of-finite-automata-project\regextomindfa\regextomindfa\source.cpp(679): warning C4018: '<': signed/unsigned mismatch
+  RegexToMinDFA.vcxproj -> C:\Users\Krisi\Desktop\Applications-of-finite-automata-project\RegexToMinDFA\Debug\RegexToMinDFA.exe
+  RegexToMinDFA.vcxproj -> C:\Users\Krisi\Desktop\Applications-of-finite-automata-project\RegexToMinDFA\Debug\RegexToMinDFA.pdb (Partial PDB)
