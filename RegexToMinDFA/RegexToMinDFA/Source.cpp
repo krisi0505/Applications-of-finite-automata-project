@@ -49,7 +49,7 @@ void epsilonClosure(int state, set<int> &Eq, vector<NFAState> NFA)
 set<int> nextState(int l, set<int> Eq, vector<NFAState> NFA)
 {
 	set<int> result;
-	for (std::set<int>::iterator it = Eq.begin(); it != Eq.end(); ++it)
+	for (std::set<int>::iterator it = Eq.begin(); it != Eq.end(); ++it) 
 	{
 		for (unsigned int j = 0; j < NFA[*it].statesWithLetter[l].size(); ++j)
 		{
@@ -91,7 +91,7 @@ vector<DFAState> determinize(vector<NFAState> NFA, int q0)
 		}
 
 		DFA[DFASize].isFinal = finalIs;
-		for (int i = 0; i < alphabetSize; ++i)
+		for (int i = 0; i < alphabetSize; ++i) //39
 		{
 			Eq = queueDFA.front();
 			next = nextState(i, Eq, NFA);
@@ -123,6 +123,10 @@ vector<DFAState> determinize(vector<NFAState> NFA, int q0)
 
 	for (int i = 0; i < DFASize; ++i)
 	{
+		if (!isTotal) 
+		{
+			break;
+		}
 		for (int j = 0; j < alphabetSize; ++j)
 		{
 			if (DFA[i].stateWithLetter[j] == -1)
