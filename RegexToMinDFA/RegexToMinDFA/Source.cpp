@@ -4,8 +4,10 @@
 #include<set>
 #include<queue>
 #include<map>
-#include<string>
+#include<string.h>
 #include <chrono>
+#include <algorithm>
+#include <stdio.h>
 
 using namespace std;
 using namespace std::chrono;
@@ -34,7 +36,7 @@ struct DFAState
 
 DFAState p; //empty non-final DFA state
 
-void epsilonClosure(int state, set<int> &Eq, vector<NFAState> NFA)
+void epsilonClosure(int state, set<int> &Eq, vector<NFAState> &NFA)
 {
 	for (unsigned int i = 0; i < NFA[state].statesWithEpsilon.size(); ++i)
 	{
@@ -46,10 +48,10 @@ void epsilonClosure(int state, set<int> &Eq, vector<NFAState> NFA)
 	}
 }
 
-set<int> nextState(int l, set<int> Eq, vector<NFAState> NFA)
+set<int> nextState(int l, set<int> &Eq, vector<NFAState> &NFA)
 {
 	set<int> result;
-	for (std::set<int>::iterator it = Eq.begin(); it != Eq.end(); ++it) 
+	for (std::set<int>::iterator it = Eq.begin(); it != Eq.end(); ++it)
 	{
 		for (unsigned int j = 0; j < NFA[*it].statesWithLetter[l].size(); ++j)
 		{
@@ -123,7 +125,7 @@ vector<DFAState> determinize(vector<NFAState> NFA, int q0)
 
 	for (int i = 0; i < DFASize; ++i)
 	{
-		if (!isTotal) 
+		if (!isTotal)
 		{
 			break;
 		}
@@ -498,20 +500,20 @@ pair<vector<NFAState>, int> constructNFA(string expression)
 		case '&': intersect(NFA, NFASize, endpoints); break;
 		case '^': complement(NFA, endpoints, NFASize); break;
 		case '<': reverse(NFA, endpoints, NFASize); break;
-		case '0': letter(26, NFA, NFASize, endpoints);
-		case '1': letter(27, NFA, NFASize, endpoints);
-		case '2': letter(28, NFA, NFASize, endpoints);
-		case '3': letter(29, NFA, NFASize, endpoints);
-		case '4': letter(30, NFA, NFASize, endpoints);
-		case '5': letter(31, NFA, NFASize, endpoints);
-		case '6': letter(32, NFA, NFASize, endpoints);
-		case '7': letter(33, NFA, NFASize, endpoints);
-		case '8': letter(34, NFA, NFASize, endpoints);
-		case '9': letter(35, NFA, NFASize, endpoints);
-		case ' ': letter(36, NFA, NFASize, endpoints);
-		case ',': letter(37, NFA, NFASize, endpoints);
-		case '$': letter(38, NFA, NFASize, endpoints);
-		default: letter(expression[i] - 'A', NFA, NFASize, endpoints);
+		case '0': letter(26, NFA, NFASize, endpoints); break;
+		case '1': letter(27, NFA, NFASize, endpoints); break;
+		case '2': letter(28, NFA, NFASize, endpoints); break;
+		case '3': letter(29, NFA, NFASize, endpoints); break;
+		case '4': letter(30, NFA, NFASize, endpoints); break;
+		case '5': letter(31, NFA, NFASize, endpoints); break;
+		case '6': letter(32, NFA, NFASize, endpoints); break;
+		case '7': letter(33, NFA, NFASize, endpoints); break;
+		case '8': letter(34, NFA, NFASize, endpoints); break;
+		case '9': letter(35, NFA, NFASize, endpoints); break;
+		case ' ': letter(36, NFA, NFASize, endpoints); break;
+		case ',': letter(37, NFA, NFASize, endpoints); break;
+		case '$': letter(38, NFA, NFASize, endpoints); break;
+		default: letter(expression[i] - 'A', NFA, NFASize, endpoints); break;
 		}
 	}
 	int f; //final state of NFA
@@ -663,11 +665,11 @@ int main()
 	cin >> expression;*/
 
 	high_resolution_clock::time_point t1 = high_resolution_clock::now();
-	pair<vector<NFAState>, int> NFAconstruction = constructNFA(month29);
+	pair<vector<NFAState>, int> NFAconstruction = constructNFA(validDates);
 	high_resolution_clock::time_point t2 = high_resolution_clock::now();
-	
+
 	auto duration = duration_cast<microseconds>(t2 - t1).count();
-	cout << duration << endl;
+	//cout << duration << endl;
 
 	int q0 = NFAconstruction.second;
 	vector<NFAState> NFA = NFAconstruction.first;
@@ -677,7 +679,7 @@ int main()
 	high_resolution_clock::time_point t4 = high_resolution_clock::now();
 
 	auto duration2 = duration_cast<microseconds>(t4 - t3).count();
-	cout << duration2 << endl;
+	//cout << duration2 << endl;
 
 	bool hasFinals = false;
 	for (int i = 0; i < DFA.size(); ++i)
@@ -696,7 +698,7 @@ int main()
 		high_resolution_clock::time_point t6 = high_resolution_clock::now();
 
 		auto duration3 = duration_cast<microseconds>(t6 - t5).count();
-		cout << duration3 << endl;
+		//cout << duration3 << endl;
 
 		vector<DFAState>  minDFA = result.second;
 		int initialState = result.first;
@@ -707,7 +709,7 @@ int main()
 		high_resolution_clock::time_point t8 = high_resolution_clock::now();
 
 		auto duration4 = duration_cast<microseconds>(t8 - t7).count();
-		cout << duration4 << endl;
+		//cout << duration4 << endl;
 	}
 	else
 	{
