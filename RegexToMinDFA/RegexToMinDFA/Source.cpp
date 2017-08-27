@@ -5,12 +5,10 @@
 #include<queue>
 #include<map>
 #include<string.h>
-#include <chrono>
 #include <algorithm>
 #include <stdio.h>
 
 using namespace std;
-using namespace std::chrono;
 
 const int alphabetSize = 39;
 
@@ -40,7 +38,7 @@ void epsilonClosure(int state, set<int> &Eq, vector<NFAState> &NFA)
 {
 	for (unsigned int i = 0; i < NFA[state].statesWithEpsilon.size(); ++i)
 	{
-		if (Eq.count(NFA[state].statesWithEpsilon[i]) == 0) //O(logn) TODO
+		if (Eq.count(NFA[state].statesWithEpsilon[i]) == 0)
 		{
 			Eq.insert(NFA[state].statesWithEpsilon[i]);
 			epsilonClosure(NFA[state].statesWithEpsilon[i], Eq, NFA);
@@ -93,7 +91,7 @@ vector<DFAState> determinize(vector<NFAState> NFA, int q0)
 		}
 
 		DFA[DFASize].isFinal = finalIs;
-		for (int i = 0; i < alphabetSize; ++i) //39
+		for (int i = 0; i < alphabetSize; ++i) 
 		{
 			Eq = queueDFA.front();
 			next = nextState(i, Eq, NFA);
@@ -103,7 +101,7 @@ vector<DFAState> determinize(vector<NFAState> NFA, int q0)
 				epsilonClosure(*it, Eq, NFA);
 			}
 
-			if (mapDFA.count(Eq) == 0) //O(logn) TODO
+			if (mapDFA.count(Eq) == 0) 
 			{
 				DFA[DFASize].stateWithLetter[i] = r;
 				mapDFA[Eq] = r++;
@@ -111,10 +109,10 @@ vector<DFAState> determinize(vector<NFAState> NFA, int q0)
 			}
 			else
 			{
-				DFA[DFASize].stateWithLetter[i] = mapDFA.find(Eq)->second; //O(logn) TODO
+				DFA[DFASize].stateWithLetter[i] = mapDFA.find(Eq)->second; 
 			}
 
-			next.clear(); //O(n) TODO
+			next.clear(); 
 		}
 
 		queueDFA.pop();
@@ -664,22 +662,12 @@ int main()
 	/*cout << "Regular expression in reverse polish notation: ";
 	cin >> expression;*/
 
-	high_resolution_clock::time_point t1 = high_resolution_clock::now();
 	pair<vector<NFAState>, int> NFAconstruction = constructNFA(validDates);
-	high_resolution_clock::time_point t2 = high_resolution_clock::now();
-
-	auto duration = duration_cast<microseconds>(t2 - t1).count();
-	//cout << duration << endl;
 
 	int q0 = NFAconstruction.second;
 	vector<NFAState> NFA = NFAconstruction.first;
 
-	high_resolution_clock::time_point t3 = high_resolution_clock::now();
 	vector<DFAState> DFA = determinize(NFA, q0);
-	high_resolution_clock::time_point t4 = high_resolution_clock::now();
-
-	auto duration2 = duration_cast<microseconds>(t4 - t3).count();
-	//cout << duration2 << endl;
 
 	bool hasFinals = false;
 	for (int i = 0; i < DFA.size(); ++i)
@@ -693,23 +681,14 @@ int main()
 
 	if (hasFinals)
 	{
-		high_resolution_clock::time_point t5 = high_resolution_clock::now();
+		
 		pair<int, vector<DFAState> > result = minimize(DFA);
-		high_resolution_clock::time_point t6 = high_resolution_clock::now();
-
-		auto duration3 = duration_cast<microseconds>(t6 - t5).count();
-		//cout << duration3 << endl;
 
 		vector<DFAState>  minDFA = result.second;
 		int initialState = result.first;
 		cout << "Initial state: " << initialState << endl;
 
-		high_resolution_clock::time_point t7 = high_resolution_clock::now();
 		print(minDFA);
-		high_resolution_clock::time_point t8 = high_resolution_clock::now();
-
-		auto duration4 = duration_cast<microseconds>(t8 - t7).count();
-		//cout << duration4 << endl;
 	}
 	else
 	{
