@@ -162,8 +162,43 @@ vector<DFAState> determinize(vector<NFAState> NFA, int q0)
 
 void print(vector<DFAState> minDFA)
 {
-	cout << endl;
-	int br = 0;
+	cout<<"Finals:"<<endl;
+	
+	for(int i=0;i<(int)minDFA.size();i++){
+		if (minDFA[i].isFinal)
+		{
+			cout << i << ",";
+		}
+	}
+	cout<<endl;
+	for(int i=0;i<minDFA.size();i++){
+		for(int j=0;j<alphabetSize;j++)
+		{
+			char l;
+			switch (j)
+			{
+			case 26: l = '0'; break;
+			case 27: l = '1'; break;
+			case 28: l = '2'; break;
+			case 29: l = '3'; break;
+			case 30: l = '4'; break;
+			case 31: l = '5'; break;
+			case 32: l = '6'; break;
+			case 33: l = '7'; break;
+			case 34: l = '8'; break;
+			case 35: l = '9'; break;
+			case 36: l = ' '; break;
+			case 37: l = ','; break;
+			case 38: l = '$'; break;
+			default: l = 'A' + j; break;
+			}
+			cout<<i<<", "<<l<<", "<<minDFA[i].stateWithLetter[j]<<endl;
+		}
+	}
+	
+	
+	
+	/*int br = 0;
 	int printedLetters = 0;
 	while (br < alphabetSize)
 	{
@@ -209,7 +244,7 @@ void print(vector<DFAState> minDFA)
 		}
 		cout << endl;
 		br += 3;
-	}
+	}*/
 }
 
 void letter(int i, vector<NFAState> &NFA, int &NFASize, stack<int> &endpoints)
@@ -645,11 +680,11 @@ int main()
 	string oneToNine = "123456789++++++++";
 	string zeroToNine = "0" + oneToNine + "+";
 	string date = oneToNine + "12+" + zeroToNine + ".30.31.+++";
-	string year = oneToNine + "A*AA*.-" + zeroToNine + "+" + "A*AA*.-" + zeroToNine + "+" + "A*AA*.-" + zeroToNine + "+...";
+	string year = oneToNine + zeroToNine + "*.";//oneToNine + "A*AA*.-" + zeroToNine + "+" + "A*AA*.-" + zeroToNine + "+" + "A*AA*.-" + zeroToNine + "+...";
 	string allDates = month + " ." + date + ", ..." + year + "$..";
 	string sigma = "AB+C+D+E+F+G+H+I+J+K+L+M+N+O+P+Q+R+S+T+U+V+W+X+Y+Z+0+1+2+3+4+5+6+7+8+9+ +,+$+";
 	string maxDays30 = sigma + "*" + sigma + "*" + month29 + " 30...." + sigma + "*.-";
-	string maxDays31 = sigma + "*" + sigma + "*" + month30 + " 31...." + sigma + "*.-";
+	string maxDays31 = sigma + "*" + sigma + "*" + month29 + month30 + "+ 31...." + sigma + "*.-";
 	string maxDays = maxDays30 + maxDays31 + "&";
 	string maxDates = allDates + maxDays + "&";
 	string even = "02468++++";
@@ -659,10 +694,11 @@ int main()
 	string leapYear = div4 + N + N + "*." + div4 + "-" + "00..-";
 	string leapDates = sigma + "*" + month29 + " 29, ......" + leapYear + "$" + sigma + "*..^.^";
 	string validDates = allDates + maxDays + leapDates + "&&";
+	string invalidDates = allDates + validDates + "-";
 	/*cout << "Regular expression in reverse polish notation: ";
 	cin >> expression;*/
 
-	pair<vector<NFAState>, int> NFAconstruction = constructNFA(validDates);
+	pair<vector<NFAState>, int> NFAconstruction = constructNFA(invalidDates);
 
 	int q0 = NFAconstruction.second;
 	vector<NFAState> NFA = NFAconstruction.first;
