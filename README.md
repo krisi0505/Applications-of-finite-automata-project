@@ -6,4 +6,4 @@ I have used the power set construction algorithm for determinisation and the Hop
 The example automata accepts only valid and existing dates i.e. it doesn't accept dates such as 'FEBRUARY 29, 2017$'. The dates are accepted in the format 'MONTH DATE, YEAR$', where:
 * MONTH is JANUARY, FEBRUARY, MARCH, APRIL, MAY, JUNE, JULY, AUGUST, SEPTEMBER, OCTOBER, NOVEMBER or DECEMBER;
 * DATE is a number between 1 and 31;
-* YEAR is a year between 1 and + /infty
+* YEAR is a year between 1 and + /cos
