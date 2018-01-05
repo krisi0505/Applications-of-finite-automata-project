@@ -1,5 +1,5 @@
 # Applications of finite automata project
-The goal of the project was to construct a minimal deterministic finite automata by a given regular expression extended with operations for intersection, complement, reversal and difference. 
+The goal of the project was to construct a minimal deterministic finite automaton by a given regular expression extended with operations for intersection, complement, reversal and difference. 
 
 I have used the power set construction algorithm for determinisation and the Hopcroft's algorithm for minimization. I managed to do the extended operations using De Morgan's laws.
 
